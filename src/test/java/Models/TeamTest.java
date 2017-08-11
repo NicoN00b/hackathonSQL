@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 public class TeamTest {
@@ -43,4 +45,13 @@ public class TeamTest {
         assertTrue(Team.getAll().contains(otherTeam));
     }
 
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Team myTeam = setupNewTeam();
+        assertEquals(LocalDateTime.now().getDayOfWeek(), myTeam.getCreatedAt().getDayOfWeek());
+    }
+
+    public Team setupNewTeam(){
+        return new Team("crypto");
+    }
 }

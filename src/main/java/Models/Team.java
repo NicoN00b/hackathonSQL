@@ -1,5 +1,6 @@
 package Models;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Team {
@@ -7,11 +8,13 @@ public class Team {
     private String description;
     private static ArrayList<Team> instances = new ArrayList<>();
     //private String member;
+    private LocalDateTime createdAt;
     private int id;
 
     public Team (String description) {
         this.name = name;
         this.description = description;
+        this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
         //this.member =
@@ -20,6 +23,16 @@ public class Team {
     public static ArrayList<Team> getAll() {
         return instances;
     }
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getName() {
         return name;
     }
