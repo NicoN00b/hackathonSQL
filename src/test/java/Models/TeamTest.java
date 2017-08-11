@@ -20,27 +20,27 @@ public class TeamTest {
 
     @Test
     public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
-        Team team = new Team("a");
+        Team team = new Team("a", "team");
         assertEquals(true, team instanceof Team);
     }
 
     @Test
-    public void TeamInstantiatesWithDescription_true() throws Exception {
-        Team team = new Team("cryptocurrency");
-        assertEquals("cryptocurrency", team.getDescription());
+    public void TeamInstantiatesWithTitle_true() throws Exception {
+        Team team = new Team("cryptocurrency", "money");
+        assertEquals("cryptocurrency", team.getTitle());
     }
 
     @Test
     public void AllTeamsAreCorrectlyReturned_true() {
-        Team team = new Team("crypto");
-        Team otherTeam = new Team ("raspberry pi");
+        Team team = new Team("crypto", "money");
+        Team otherTeam = new Team ("raspberry pi", "little");
         assertEquals(2, Team.getAll().size());
     }
 
     @Test
     public void AllTeamsContainsAllTeams_true() {
-        Team team = new Team("crypto");
-        Team otherTeam = new Team ("raspberry pi");
+        Team team = new Team("crypto", "money");
+        Team otherTeam = new Team ("raspberry pi", "little");
         assertTrue(Team.getAll().contains(team));
         assertTrue(Team.getAll().contains(otherTeam));
     }
@@ -54,7 +54,7 @@ public class TeamTest {
     @Test
     public void getId_TeamsInstantiateWithAnID_1() throws Exception{
         Team.clearAllTeams();
-        Team myTeam = new Team("crypto");
+        Team myTeam = new Team("crypto", "money");
         assertEquals(1, myTeam.getId());
     }
 
@@ -67,7 +67,7 @@ public class TeamTest {
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
         Team team = setupNewTeam();
-        Team otherTeam = new Team("raspberry pi");
+        Team otherTeam = new Team("raspberry pi", "little");
         assertEquals(2, Team.findById(otherTeam.getId()).getId());
     }
 
@@ -88,7 +88,7 @@ public class TeamTest {
     @Test
     public void deleteDeletesASpecificTeam() throws Exception {
         Team team = setupNewTeam();
-        Team otherTeam = new Team("raspberry pi");
+        Team otherTeam = new Team("raspberry pi", "little");
         team.deleteTeam();
         assertEquals(1, Team.getAll().size());
         assertEquals(Team.getAll().get(0).getId(), 1);
@@ -104,7 +104,7 @@ public class TeamTest {
 
     @Test
     public void addMembertoTeam_true() {
-        Team team = new Team ("a-team");
+        Team team = new Team ("a-team", "van");
         Member member = new Member ("Cody");
         team.addMember(member);
         assertTrue(team.getMembers().contains(member));
@@ -121,6 +121,6 @@ public class TeamTest {
 //    }
 
     public Team setupNewTeam(){
-        return new Team("crypto");
+        return new Team("crypto", "money");
     }
 }

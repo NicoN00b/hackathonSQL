@@ -9,12 +9,11 @@ public class Team {
     private String title;
     private String description;
     private static ArrayList<Team> instances = new ArrayList<>();
-    //private String member;
     private LocalDateTime createdAt;
     private int id;
     private static ArrayList<Member> teamMembers;
 
-    public Team (String description) {
+    public Team (String title, String description) {
         this.title = title;
         this.description = description;
         this.createdAt = LocalDateTime.now();
