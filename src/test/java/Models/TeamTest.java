@@ -51,6 +51,19 @@ public class TeamTest {
         assertEquals(LocalDateTime.now().getDayOfWeek(), myTeam.getCreatedAt().getDayOfWeek());
     }
 
+    @Test
+    public void getId_TeamsInstantiateWithAnID_1() throws Exception{
+        Team.clearAllTeams();
+        Team myTeam = new Team("crypto");
+        assertEquals(1, myTeam.getId());
+    }
+
+    @Test
+    public void findReturnsCorrectTeam() throws Exception {
+        Team team = setupNewTeam();
+        assertEquals(1, Team.findById(team.getId()).getId());
+    }
+
     public Team setupNewTeam(){
         return new Team("crypto");
     }

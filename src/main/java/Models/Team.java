@@ -68,4 +68,9 @@ public class Team {
     public void setId(int id) {
         this.id = id;
     }
+
+    public static Team findById(int id) {
+
+        return instances.get(id-1);
+    }
 }
