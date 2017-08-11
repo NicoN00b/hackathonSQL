@@ -35,4 +35,12 @@ public class TeamTest {
         assertEquals(2, Team.getAll().size());
     }
 
+    @Test
+    public void AllTeamsContainsAllTeams_true() {
+        Team team = new Team("crypto");
+        Team otherTeam = new Team ("raspberry pi");
+        assertTrue(Team.getAll().contains(team));
+        assertTrue(Team.getAll().contains(otherTeam));
+    }
+
 }
