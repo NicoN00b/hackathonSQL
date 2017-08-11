@@ -72,8 +72,9 @@ public class Team {
         return instances.get(id-1);
     }
 
-    public void update(String description) {
+    public void update(String title, String description) {
 
+        this.title = title;
         this.description = description;
     }
 

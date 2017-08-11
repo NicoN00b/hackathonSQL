@@ -17,7 +17,7 @@ public class App {
 
         get("/teams/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "newteam-form.hbs");
+            return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/teams/new", (request, response) -> { //URL to make new post on POST route
@@ -49,6 +49,24 @@ public class App {
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String title = req.queryParams("title");
+            String description = req.queryParams("description");
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            editTeam.update(title, description);
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/teams/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToFind = Integer.parseInt(req.params("id")); //pull id - must match route segment
@@ -57,12 +75,5 @@ public class App {
             return new ModelAndView(model, "team-detail.hbs"); //individual team page.
         }, new HandlebarsTemplateEngine());
 
-        get("/teams/:id/update", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
-            Team editTeam = Team.findById(idOfTeamToEdit);
-            model.put("editTeam", editTeam);
-            return new ModelAndView(model, "team-form.hbs");
-        }, new HandlebarsTemplateEngine());
     }
 }
