@@ -64,6 +64,13 @@ public class TeamTest {
         assertEquals(1, Team.findById(team.getId()).getId());
     }
 
+    @Test
+    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
+        Team team = setupNewTeam();
+        Team otherTeam = new Team("raspberry pi");
+        assertEquals(2, Team.findById(otherTeam.getId()).getId());
+    }
+
     public Team setupNewTeam(){
         return new Team("crypto");
     }
