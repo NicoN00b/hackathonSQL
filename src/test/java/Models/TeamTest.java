@@ -102,6 +102,24 @@ public class TeamTest {
         assertEquals(0, Team.getAll().size());
     }
 
+    @Test
+    public void addMembertoTeam_true() {
+        Team team = new Team ("a-team");
+        Member member = new Member ("Cody");
+        team.addMember(member);
+        assertTrue(team.getMembers().contains(member));
+    }
+
+//    @Test
+//    public void addMemberstoTeam_ReturnCorrectMembers() {
+//        Team team = new Team ("a-team");
+//        Member member = new Member ("Cody");
+//        Member otherMember = new Member ("Cody Two");
+//        team.addMember(member);
+//        team.addMember(otherMember);
+//        assertEquals("Cody", team.getMem());
+//    }
+
     public Team setupNewTeam(){
         return new Team("crypto");
     }

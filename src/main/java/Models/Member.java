@@ -6,7 +6,7 @@ import java.util.List;
 public class Member {
     private String name;
     private String contact;
-    private static List<Member> members = new ArrayList<>();
+    private static ArrayList<Member> members = new ArrayList<>();
     private int id;
 
     public Member (String name) {

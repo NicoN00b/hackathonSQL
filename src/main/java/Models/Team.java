@@ -1,7 +1,9 @@
 package Models;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Team {
     private String title;
@@ -10,6 +12,7 @@ public class Team {
     //private String member;
     private LocalDateTime createdAt;
     private int id;
+    private static ArrayList<Member> teamMembers;
 
     public Team (String description) {
         this.title = title;
@@ -17,7 +20,7 @@ public class Team {
         this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
-        //this.member =
+        teamMembers = new ArrayList<>();
     }
 
     public static ArrayList<Team> getAll() {
@@ -35,10 +38,6 @@ public class Team {
 
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public static void clearAllTeams() {
@@ -84,5 +83,13 @@ public class Team {
         for (Team thisTeam : instances) {
             thisTeam.id = instances.indexOf(thisTeam) + 1;
         }
+    }
+
+    public static ArrayList<Member> getMembers() {
+        return teamMembers;
+    }
+
+    public void addMember(Member member) {
+        teamMembers.add(member);
     }
 }
