@@ -9,7 +9,7 @@ public class Member {
     private static List<Member> members = new ArrayList<>();
     private int id;
 
-    public Member () {
+    public Member (String name) {
         this.name  = name;
         this.contact = contact;
         members.add(this);

@@ -18,8 +18,18 @@ public class MemberTest {
 
     @Test
     public void NewMemberObjectGetsCorrectlyCreated_true() throws Exception {
-        Member member = new Member();
+        Member member = setupNewMember();
         assertEquals(true, member instanceof Member);
+    }
+
+    @Test
+    public void MemberInstantiatesWithContent_true() throws Exception {
+        Member Member = setupNewMember();
+        assertEquals("bill", Member.getName());
+    }
+
+    public Member setupNewMember(){
+        return new Member("bill");
     }
 
 }
