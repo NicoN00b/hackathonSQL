@@ -13,12 +13,18 @@ public class TeamTest {
 
     @After
     public void tearDown() throws Exception {
+        Team.clearAllTeams();
     }
 
     @Test
     public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
-        Team team = new Team();
+        Team team = new Team("a");
         assertEquals(true, team instanceof Team);
+    }
+    @Test
+    public void TeamInstantiatesWithDescription_true() throws Exception {
+        Team team = new Team("cryptocurrency");
+        assertEquals("cryptocurrency", team.getDescription());
     }
 
 }
