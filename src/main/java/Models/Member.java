@@ -44,5 +44,14 @@ public class Member {
         return id;
     }
 
+    public static Member findById(int id) {
+
+        return members.get(id-1);
+    }
+
+    public void update(String name) {
+
+        this.name = name;
+    }
 
 }

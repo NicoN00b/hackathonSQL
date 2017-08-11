@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 public class MemberTest {
@@ -44,9 +46,40 @@ public class MemberTest {
         assertTrue(Member.getAll().contains(otherMember));
     }
 
+    @Test
+    public void getId_MembersInstantiateWithAnID_1() throws Exception {
+        Member member = setupNewMember();
+        assertEquals(1, member.getId());
+    }
+
+
+    @Test
+    public void findReturnsCorrectMember() throws Exception {
+        Member member = setupNewMember();
+        assertEquals(1, Member.findById(member.getId()).getId());
+    }
+
 
     public Member setupNewMember(){
         return new Member("bill");
     }
 
+    @Test
+    public void findReturnsCorrectMemberWhenMoreThanOneMemberExists() throws Exception {
+        Member member = setupNewMember();
+        Member otherMember = new Member("tom");
+        assertEquals(2, Member.findById(otherMember.getId()).getId());
+    }
+
+    @Test
+    public void updateChangesMemberName() throws Exception {
+        Member member = setupNewMember();
+        String formerName = member.getName();
+        int formerId = member.getId();
+
+        member.update("cody");
+
+        assertEquals(formerId, member.getId());
+        assertNotEquals(formerName, member.getName());
+    }
 }
