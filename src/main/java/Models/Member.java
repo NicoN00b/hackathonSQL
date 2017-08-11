@@ -7,13 +7,13 @@ public class Member {
     private String name;
     private String contact;
     private static ArrayList<Member> members = new ArrayList<>();
-    private int id;
+    private int mId;
 
     public Member (String name) {
         this.name  = name;
         this.contact = contact;
         members.add(this);
-        id = members.size();
+        mId = members.size();
     }
 
     public static void clearAllMembers () {
@@ -41,7 +41,7 @@ public class Member {
     }
 
     public int getId() {
-        return id;
+        return mId;
     }
 
     public static Member findById(int id) {
@@ -55,9 +55,9 @@ public class Member {
     }
 
     public void deleteMember() {
-        members.remove(id - 1);
+        members.remove(mId - 1);
         for (Member thisMember : members) {
-            thisMember.id = members.indexOf(thisMember) + 1;
+            thisMember.mId = members.indexOf(thisMember) + 1;
         }
     }
 
