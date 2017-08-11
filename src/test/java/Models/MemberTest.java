@@ -24,9 +24,18 @@ public class MemberTest {
 
     @Test
     public void MemberInstantiatesWithContent_true() throws Exception {
-        Member Member = setupNewMember();
-        assertEquals("bill", Member.getName());
+        Member member = setupNewMember();
+        assertEquals("bill", member.getName());
     }
+
+    @Test
+    public void AllMembersInstantiateWithContent_true() throws Exception {
+        Member member = setupNewMember();
+        Member otherMember = setupNewMember();
+        assertEquals("bill", member.getName());
+        assertEquals("bill", otherMember.getName());
+    }
+
 
     public Member setupNewMember(){
         return new Member("bill");
