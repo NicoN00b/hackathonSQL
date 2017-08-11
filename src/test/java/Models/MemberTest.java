@@ -31,7 +31,7 @@ public class MemberTest {
     }
 
     @Test
-    public void AllMembersInstantiateWithContent_true() throws Exception {
+    public void AllMemberInstantiateWithContent_true() throws Exception {
         Member member = setupNewMember();
         Member otherMember = setupNewMember();
         assertEquals("bill", member.getName());
@@ -39,7 +39,7 @@ public class MemberTest {
     }
 
     @Test
-    public void MembersContainAllMembers_true() {
+    public void MemberContainAllMember_true() {
         Member member = setupNewMember();
         Member otherMember = setupNewMember();
         assertTrue(Member.getAll().contains(member));
@@ -47,7 +47,7 @@ public class MemberTest {
     }
 
     @Test
-    public void getId_MembersInstantiateWithAnID_1() throws Exception {
+    public void getId_MemberInstantiateWithAnID_1() throws Exception {
         Member member = setupNewMember();
         assertEquals(1, member.getId());
     }
@@ -81,5 +81,22 @@ public class MemberTest {
 
         assertEquals(formerId, member.getId());
         assertNotEquals(formerName, member.getName());
+    }
+
+    @Test
+    public void DeletesASpecificMember() throws Exception {
+        Member member = setupNewMember();
+        Member otherMember = new Member("cody");
+        member.deleteMember();
+        assertEquals(1, Member.getAll().size());
+        assertEquals(Member.getAll().get(0).getId(), 1);
+    }
+
+    @Test
+    public void deleteAllMembersDeletesAllMembers() throws Exception {
+        Member member = setupNewMember();
+        Member otherMember = setupNewMember();
+        Member.clearAllMembers();
+        assertEquals(0, Member.getAll().size());
     }
 }

@@ -54,4 +54,11 @@ public class Member {
         this.name = name;
     }
 
+    public void deleteMember() {
+        members.remove(id - 1);
+        for (Member thisMember : members) {
+            thisMember.id = members.indexOf(thisMember) + 1;
+        }
+    }
+
 }
