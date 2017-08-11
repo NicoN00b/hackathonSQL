@@ -85,6 +85,15 @@ public class TeamTest {
         assertNotEquals(formerDescription, team.getDescription());
     }
 
+    @Test
+    public void deleteDeletesASpecificTeam() throws Exception {
+        Team team = setupNewTeam();
+        Team otherTeam = new Team("raspberry pi");
+        team.deleteTeam();
+        assertEquals(1, Team.getAll().size());
+        assertEquals(Team.getAll().get(0).getId(), 1);
+    }
+
     public Team setupNewTeam(){
         return new Team("crypto");
     }
