@@ -17,6 +17,9 @@ public class Team {
         //this.member =
     }
 
+    public static ArrayList<Team> getAll() {
+        return instances;
+    }
     public String getName() {
         return name;
     }
