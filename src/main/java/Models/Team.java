@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Team {
-    private String name;
+    private String title;
     private String description;
     private static ArrayList<Team> instances = new ArrayList<>();
     //private String member;
@@ -12,7 +12,7 @@ public class Team {
     private int id;
 
     public Team (String description) {
-        this.name = name;
+        this.title = title;
         this.description = description;
         this.createdAt = LocalDateTime.now();
         instances.add(this);
@@ -33,12 +33,12 @@ public class Team {
         this.createdAt = createdAt;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public static void clearAllTeams() {
