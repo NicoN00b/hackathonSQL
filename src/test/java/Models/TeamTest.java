@@ -71,6 +71,20 @@ public class TeamTest {
         assertEquals(2, Team.findById(otherTeam.getId()).getId());
     }
 
+    @Test
+    public void updateChangesTeamDescription() throws Exception {
+        Team team = setupNewTeam();
+        String formerDescription = team.getDescription();
+        LocalDateTime formerDate = team.getCreatedAt();
+        int formerId = team.getId();
+
+        team.update("raspberry pi");
+
+        assertEquals(formerId, team.getId());
+        assertEquals(formerDate, team.getCreatedAt());
+        assertNotEquals(formerDescription, team.getDescription());
+    }
+
     public Team setupNewTeam(){
         return new Team("crypto");
     }
