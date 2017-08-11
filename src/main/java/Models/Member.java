@@ -20,6 +20,10 @@ public class Member {
         members.clear();
     }
 
+    public static List<Member> getAll(){
+        return members;
+    }
+
     public String getName() {
         return name;
     }

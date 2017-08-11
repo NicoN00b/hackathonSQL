@@ -36,6 +36,14 @@ public class MemberTest {
         assertEquals("bill", otherMember.getName());
     }
 
+    @Test
+    public void MembersContainAllMembers_true() {
+        Member member = setupNewMember();
+        Member otherMember = setupNewMember();
+        assertTrue(Member.getAll().contains(member));
+        assertTrue(Member.getAll().contains(otherMember));
+    }
+
 
     public Member setupNewMember(){
         return new Member("bill");
