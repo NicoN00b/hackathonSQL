@@ -11,7 +11,15 @@
                 <input id="description" name="description" type="text" value="{{editTeam.description}}">
                 <button type="submit" class="btn btn-default">Edit Team!</button>
         </form>
+    {{else if Member}}
+        <h1>Add Team Member</h1>
 
+        <form action="/teams/{{Member.id}}/add-member" method="post">
+            <label for="title">New member's name</label>
+            <input id="title" name="title">
+
+            <button type="submit" class="btn btn-default">Add New Member</button>
+        </form>
     {{else}}
         <h1>Add a new Team!</h1>
 
@@ -24,7 +32,7 @@
             <input id="description" name="description">
 
 
-            <button type="submit" class="btn btn-default">Edit Team!</button>
+            <button type="submit" class="btn btn-default">Add Team!</button>
         </form>
     {{/if}}
 {{/partial}}

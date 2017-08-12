@@ -1,5 +1,6 @@
-import Models.Team;
 import Models.Member;
+import Models.Team;
+//import Models.Member;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -25,6 +26,7 @@ public class App {
             String title = request.queryParams("title");
             String description = request.queryParams("description");
             Team newTeam = new Team(title, description);
+//            newTeam.addMember(String name);
             model.put("teams", newTeam);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -54,7 +56,7 @@ public class App {
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfTeamToEdit);
             model.put("editTeam", editTeam);
-            return new ModelAndView(model, "team-form.hbs");
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/teams/:id/update", (req, res) -> {
@@ -65,6 +67,24 @@ public class App {
             Team editTeam = Team.findById(idOfTeamToEdit);
             editTeam.update(title, description);
             return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/teams/:id/add-member", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idTeam = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idTeam);
+            model.put("Member", editTeam);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id/add-member", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idTeam = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idTeam);
+            String member = req.queryParams("member");
+            editTeam.addMember(member);
+            model.put("newMember", editTeam);
+            return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/teams/:id", (req, res) -> {

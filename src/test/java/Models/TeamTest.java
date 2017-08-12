@@ -78,7 +78,7 @@ public class TeamTest {
         LocalDateTime formerDate = team.getCreatedAt();
         int formerId = team.getId();
 
-        team.update("raspberry pi");
+        team.update("raspberry pi", "little");
 
         assertEquals(formerId, team.getId());
         assertEquals(formerDate, team.getCreatedAt());
@@ -102,13 +102,13 @@ public class TeamTest {
         assertEquals(0, Team.getAll().size());
     }
 
-    @Test
-    public void addMembertoTeam_true() {
-        Team team = new Team ("a-team", "van");
-        Member member = new Member ("Cody");
-        team.addMember(member);
-        assertTrue(team.getMembers().contains(member));
-    }
+//    @Test
+//    public void addMembertoTeam_true() {
+//        Team team = new Team ("a-team", "van");
+//        Member member = new Member ("Cody");
+//        team.addMember(member);
+//        assertTrue(team.getMembers().contains(member));
+//    }
 
 //    @Test
 //    public void addMemberstoTeam_ReturnCorrectMembers() {

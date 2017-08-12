@@ -1,10 +1,19 @@
 {{#partial "content"}}
 
-    <h1>Success!</h1>
-
-    Your team has been saved.
-
+{{#if editTeam}}
+    <h1>Team Updated Successfully.</h1>
     <a href="/">Go Back</a>
+
+{{else if addMember}}
+    <h1>Member Added!</h1>
+    <a href="/">Go Back</a>
+
+{{else}}
+    <h1>Team Added!</h1>
+    <a href="/">Go Back</a>
+
+{{/if}}
+
 {{/partial}}
 
 {{> layout.hbs}}

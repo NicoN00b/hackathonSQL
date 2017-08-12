@@ -11,7 +11,7 @@ public class Team {
     private static ArrayList<Team> instances = new ArrayList<>();
     private LocalDateTime createdAt;
     private int id;
-    private static ArrayList<Member> teamMembers;
+    private static ArrayList<String> teamMembers;
 
     public Team (String title, String description) {
         this.title = title;
@@ -19,7 +19,7 @@ public class Team {
         this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
-        teamMembers = new ArrayList<>();
+        this.teamMembers = new ArrayList<>();
     }
 
     public static ArrayList<Team> getAll() {
@@ -31,9 +31,6 @@ public class Team {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public String getTitle() {
         return title;
@@ -47,24 +44,12 @@ public class Team {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public static ArrayList<Team> getInstances() {
         return instances;
     }
 
-    public static void setInstances(ArrayList<Team> instances) {
-        Team.instances = instances;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public static Team findById(int id) {
@@ -85,11 +70,12 @@ public class Team {
         }
     }
 
-    public static ArrayList<Member> getMembers() {
+    public static ArrayList<String> getMembers() {
         return teamMembers;
     }
 
-    public void addMember(Member member) {
+    public void addMember(String member) {
+        String newMember = member;
         teamMembers.add(member);
     }
 }
