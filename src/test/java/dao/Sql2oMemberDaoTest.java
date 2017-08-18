@@ -61,7 +61,7 @@ public class Sql2oMemberDaoTest {
     @Test
     public void clearAllClearsAll() throws Exception {
         Member member = setupNewMember();
-        Member otherMember = new Member("cody", "cd@gmail.com");
+        Member otherMember = new Member("cody", "cd@gmail.com", 1);
         memberDao.add(member);
         memberDao.add(otherMember);
         int daoSize = memberDao.getAll().size();
@@ -78,7 +78,7 @@ public class Sql2oMemberDaoTest {
     }
 
     public Member setupNewMember(){
-        return new Member("bill", "bill@yahoo.com");
+        return new Member("bill", "bill@yahoo.com", 1);
     }
 
 }

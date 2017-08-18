@@ -5,68 +5,57 @@ import java.util.ArrayList;
 public class Team {
     private String title;
     private String description;
-    private static ArrayList<Team> instances = new ArrayList<>();
     private int id;
-    private static ArrayList<String> teamMembers;
 
     public Team (String title, String description) {
         this.title = title;
         this.description = description;
-        instances.add(this);
-        this.id = instances.size();
-        this.teamMembers = new ArrayList<>();
     }
-
-    public static ArrayList<Team> getAll() {
-        return instances;
-    }
-
-
 
     public String getTitle() {
         return title;
     }
 
-    public static void clearAllTeams() {
-        instances.clear();
-    }
+
 
     public String getDescription() {
         return description;
     }
 
-    public static ArrayList<Team> getInstances() {
-        return instances;
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
         return id;
     }
 
-    public static Team findById(int id) {
-
-        return instances.get(id-1);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void update(String title, String description) {
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        this.title = title;
-        this.description = description;
+        Team team = (Team) o;
+
+        if (id != team.id) return false;
+        if (title != null ? !title.equals(team.title) : team.title != null) return false;
+        return description != null ? description.equals(team.description) : team.description == null;
     }
 
-    public void deleteTeam() {
-        instances.remove(id - 1);
-        for (Team thisTeam : instances) {
-            thisTeam.id = instances.indexOf(thisTeam) + 1;
-        }
-    }
-
-    public static ArrayList<String> getMembers() {
-        return teamMembers;
-    }
-
-    public void addMember(String member) {
-        String newMember = member;
-        teamMembers.add(member);
+    @Override
+    public int hashCode() {
+        int result = title != null ? title.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + id;
+        return result;
     }
 }
