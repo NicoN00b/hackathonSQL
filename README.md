@@ -9,7 +9,7 @@
 This is a project for the Epicodus Java Track.  It requires an IDE (I used IntelliJ ), Spark, SQL (I used Postgres) and a browser.  Additionally, the user will be prompted to import various libraries if they are not automatically rendered.  This application will allow you to create, read, update, and destroy (delete) instances of both team and member classes.  
 
 
-![Database schema](/src/main/resources/public/images/schema.JPG "Schema")
+![Database schema](/public/images/schema.JPG "Schema")
 
 | Behavior |Expected Input | Expected Output |
 | --- | --- | --- |
