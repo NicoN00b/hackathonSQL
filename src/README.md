@@ -8,10 +8,11 @@
 
 This is a project for the Epicodus Java Track.  It requires an IDE (I used IntelliJ ), Spark, SQL (I used Postgres) and a browser.  Additionally, the user will be prompted to import various libraries if they are not automatically rendered.  This application will allow you to create, read, update, and destroy (delete) instances of both team and member classes.  
 
-![schema](/images/schema.jpeg)
+
+![Database schema](/src/main/resources/public/images/schema.JPG "Schema")
 
 | Behavior |Expected Input | Expected Output |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Add new team| team name(title) and description | team listed on index page and in dropdown menu|
 | Add member |member name and contact and selection of team| member information stored in members (participants) section and in applicable team|
 | Edit Team | new name(title) and description | update reflected on team list on homepage and team dropdown menu |
