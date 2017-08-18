@@ -12,12 +12,19 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h2>PDX Hack-A-Thon</h2>
+        <h1>PDX Hack-A-Thon</h1>
     </div>
 
     <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="/">Home</a></li>
-        <li role="presentation"><a href="/teams">See All Teams</a></li>
+        <!--<li role="presentation"><a href="/members/new">Register</a></li>-->
+        <li role="presentation" class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Registration Menu <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="/members/new">Sign Up</a></li>
+            <li><a href="/members">See Registered Participants</a></li>
+        </ul>
+        </li>
         <li role="presentation" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hack Team Menu <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -50,6 +57,7 @@
 <!--end main template-->
 {{#block "footer"}}
     <footer class="footer">
+        <br>
         <div class="container">
             <p class="text-muted"><a href="/teams/delete">Delete All Teams</a> This cannot be undone.</p>
         </div>

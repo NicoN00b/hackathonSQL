@@ -1,0 +1,20 @@
+{{#partial "content"}}
+
+    <h1>Registered Participants</h1>
+    <br>
+    {{#if members}}
+        {{#each members }}
+            <div class="well">
+                <p>{{ name }}</p>
+                <p>{{ contact }}</p>
+                <br>
+                <a href="/members/{{id}}/update">Edit this participant's information</a><br>
+                <a href="/members/{{id}}/delete">Remove this participant</a>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No Participants Added!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}

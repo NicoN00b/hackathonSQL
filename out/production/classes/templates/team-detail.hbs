@@ -1,22 +1,27 @@
 {{#partial "content"}}
-    <p>Here are all the members listed in the team:  {{team.title}} </p>
+    <h5>{{team.title}}</h5>
+    <p>{{team.description}}</p>
 
+    {{#if members}}
+        <br>
+    <p>Here are all the members listed in {{team.title}}</p>
 
     <ul>
         {{#each members}}
             <li>
-                <h5>Team Member Name:</h5>
                 <p> {{name}}</p>
-                <h5>Team Member Email:</h5>
                 <p> {{contact}}</p>
 
                 <br>
-                <a href="/members/update">Edit this task</a><br>
-                <a href="/members/delete">DELETE this task (These things cannot be undone)</a>
+                <a href="/members/{{id}}/update">Edit this team member's information</a><br>
+                <a href="/members/{{id}}/delete">Remove this member from the team</a>
             </li>
         {{/each}}
     </ul>
-    <a href="/teams/update">Edit this team</a><br>
+    {{else}}
+        <p>This team doesn't have any members yet.</p>
+    {{/if}}
+    <a href="/teams/update">Update a Hack team</a><br>
     <a href="/teams/{{team.id}}/delete">DELETE this team (These things cannot be undone)</a>
 
 

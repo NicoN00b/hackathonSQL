@@ -1,17 +1,27 @@
 {{#partial "content"}}
 
     {{#if editTeam}}
-        <h1>Edit this Team!</h1>
+        <h1>Edit a Hack Team!</h1>
         <form action="/teams/update" method="post">
             <select name="editTeamId" id="editTeamId">
                 {{#each teams }}
                     <option value="{{id}}">{{title}}</option>
                 {{/each}}
             </select>
+            <br>
+            <br>
             <label for="title">Edit this team's name</label>
-            <input id="title" name="title" type="text" placeholder="new team name">
+            <br>
+            <br>
+            <input id="title" name="title" placeholder="new team name">
+            <br>
+            <br>
             <label for="description">Edit this team's description</label>
-            <input id="description" name="description" type="text" placeholder="new team description">
+            <br>
+            <br>
+            <input id="description" name="description" placeholder="new team description">
+            <br>
+            <br>
 
 
     {{else}}
@@ -19,10 +29,18 @@
 
         <form action="/teams" method="post">
             <label for="title">Team Name</label>
+            <br>
             <input id="title" name="title" type="text">
+            <br>
+            <br>
+            <label for="description">Enter a Description for this team</label>
+            <br>
+            <input id="description" name="description" type="text">
+            <br>
+            <br>
 
     {{/if}}
-        <button type="submit" class="btn btn-default">Go!</button>
+        <button type="submit" class="btn btn-default">Submit</button>
     </form>
 {{/partial}}
 
