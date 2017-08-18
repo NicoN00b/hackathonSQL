@@ -1,19 +1,26 @@
 {{#partial "content"}}
+    <p>Here are all the members listed in the team:  {{team.title}} </p>
 
-    <div class="well">
-        <p>{{teams.title}}:</p>
 
-        <p>{{teams.description}}</p>
+    <ul>
+        {{#each members}}
+            <li>
+                <h5>Team Member Name:</h5>
+                <p> {{name}}</p>
+                <h5>Team Member Email:</h5>
+                <p> {{contact}}</p>
 
-        <ul>{{member}}</ul>
+                <br>
+                <a href="/members/update">Edit this task</a><br>
+                <a href="/members/delete">DELETE this task (These things cannot be undone)</a>
+            </li>
+        {{/each}}
+    </ul>
+    <a href="/teams/update">Edit this team</a><br>
+    <a href="/teams/{{team.id}}/delete">DELETE this team (These things cannot be undone)</a>
 
-        <p>
-           <a href="/teams/{{teams.id}}/update">Edit this entry</a>
-            <br>
-           <a href="/teams/{{teams.id}}/add-member">Add Team Member</a>
 
-           <a href="/teams/{{teams.id}}/delete">Delete this entry (this cannot be undone)</a>
-        </p>
-    </div>
+
 {{/partial}}
+
 {{> layout.hbs}}

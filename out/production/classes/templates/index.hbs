@@ -5,14 +5,7 @@
     {{#if teams}}
         {{#each teams }}
             <div class="well">
-                <p>Team:</p>
-                <ul>
-                    <li>{{title}}</li>
-                    <li>{{description}}</li>
-
-                </ul>
                 <p>{{ title }} <a href="/teams/{{id}}">read more...</a></p>
-                <p>{{ title }} <a href="/teams/{{id}}/add-member">add team member...</a></p>
             </div>
         {{/each}}
     {{else}}

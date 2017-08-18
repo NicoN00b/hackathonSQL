@@ -1,18 +1,42 @@
 {{#partial "content"}}
 
-    
-        <h1>Edit this Team!</h1>
-        <form action="/teams/{{editTeam.id}}/update" method="post">
+    {{#if editMember}}
+        <h1>Edit this Profile!</h1>
+        <form action="/members/{{editMember.id}}/update" method="post">
+            <label for="name">Edit this member's name</label>
+            <input id="name" name="name" type="text" value="{{editMember.name}}">
+            <label for="contact">Edit this member's email address</label>
+            <input id="contact" name="contact" type="text" value="{{editMember.contact}}">
+            <label for="team">Hack Team</label>
+            <select id="team" name="team">
+                {{#if teams}}
+                    {{#each teams}}
+                        <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
 
-            <label for="title">Edit this team's name</label>
-            <input id="title" name="title" type="text" value="{{editTeam.title}}">
+    {{else}}
+            <h1>Register a Participant!</h1>
 
-            <label for="description">Edit this place's description</label>
-            <input id="description" name="description" type="text" value="{{editTeam.description}}">
-            <button type="submit" class="btn btn-default">Edit Team!</button>
-        </form>
+        <form action="/members/new" method="post">
+            <label for="name">Participant's Name (legal or otherwise)</label>
+            <input id="name" name="name" type="text">
+            <label for="contact">Participant's email address</label>
+            <input id="contact" name="contact" type="text">
 
+            <label for="team">Join a Hack Team (required for registration, but you may switch teams at any time)</label>
+            <select id="team" name="team">
+                {{#if teams}}
+                    {{#each teams}}
+                        <option value="{{id}}">{{title}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
 
+    {{/if}}
+        <button type="submit" class="btn btn-default">Register</button>
+    </form>
 {{/partial}}
 
 {{> layout.hbs}}
