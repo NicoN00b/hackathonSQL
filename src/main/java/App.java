@@ -1,6 +1,5 @@
-import Models.Member;
-import Models.Team;
-//import Models.Member;
+import models.Team;
+//import models.MemberDao;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -73,7 +72,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             int idTeam = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idTeam);
-            model.put("Member", editTeam);
+            model.put("MemberDao", editTeam);
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 

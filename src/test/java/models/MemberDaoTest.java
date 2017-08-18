@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import org.junit.After;
 import org.junit.Before;
@@ -6,11 +6,9 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.time.LocalDateTime;
-
 import static org.junit.Assert.*;
 
-public class MemberTest {
+public class MemberDaoTest {
 
     private Sql2oTaskDao memberDao;
     private Connection conn;

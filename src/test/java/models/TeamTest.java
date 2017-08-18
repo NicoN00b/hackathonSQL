@@ -1,4 +1,4 @@
-package Models;
+package models;
 
 import org.junit.After;
 import org.junit.Before;
@@ -105,7 +105,7 @@ public class TeamTest {
 //    @Test
 //    public void addMembertoTeam_true() {
 //        Team team = new Team ("a-team", "van");
-//        Member member = new Member ("Cody");
+//        MemberDao member = new MemberDao ("Cody");
 //        team.addMember(member);
 //        assertTrue(team.getMembers().contains(member));
 //    }
@@ -113,8 +113,8 @@ public class TeamTest {
 //    @Test
 //    public void addMemberstoTeam_ReturnCorrectMembers() {
 //        Team team = new Team ("a-team");
-//        Member member = new Member ("Cody");
-//        Member otherMember = new Member ("Cody Two");
+//        MemberDao member = new MemberDao ("Cody");
+//        MemberDao otherMember = new MemberDao ("Cody Two");
 //        team.addMember(member);
 //        team.addMember(otherMember);
 //        assertEquals("Cody", team.getMem());

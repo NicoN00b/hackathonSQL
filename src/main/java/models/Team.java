@@ -1,9 +1,6 @@
-package Models;
+package models;
 
-import java.lang.reflect.Array;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Team {
     private String title;
