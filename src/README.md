@@ -16,10 +16,10 @@ This is a project for the Epicodus Java Track.  It requires an IDE (I used Intel
 | Add new team| team name(title) and description | team listed on index page and in dropdown menu|
 | Add member |member name and contact and selection of team| member information stored in members (participants) section and in applicable team|
 | Edit Team | new name(title) and description | update reflected on team list on homepage and team dropdown menu |
-| Edit Member (participant) | New name and contact information, and selection of new team |
-| information updated | Delete member(participant)| user selects delete participant(member) link |participant is removed from database |
-|delete team |  user selects delete team link| team is removed |
-delete all teams | user selects delete all teams link| teams list is wiped clean|
+| Edit Member (participant) | new name and contact information, and selection of new team | information updated | 
+|Delete member(participant)| user selects delete participant(member) link |participant is removed from database |
+|Delete team |  user selects delete team link| team is removed |
+|Delete all teams | user selects delete all teams link| teams list is wiped clean|
 
 ## Known Bugs
 
