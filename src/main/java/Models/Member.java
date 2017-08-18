@@ -6,6 +6,7 @@ import java.util.List;
 public class Member {
     private String name;
     private String contact;
+    private boolean completed
     private static ArrayList<Member> members = new ArrayList<>();
     private int mId;
 

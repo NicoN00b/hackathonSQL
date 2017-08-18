@@ -9,14 +9,12 @@ public class Team {
     private String title;
     private String description;
     private static ArrayList<Team> instances = new ArrayList<>();
-    private LocalDateTime createdAt;
     private int id;
     private static ArrayList<String> teamMembers;
 
     public Team (String title, String description) {
         this.title = title;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
         this.teamMembers = new ArrayList<>();
@@ -26,10 +24,6 @@ public class Team {
         return instances;
     }
 
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
 
     public String getTitle() {
