@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.*;
 
 public class Sql2oMemberDaoTest {
@@ -36,7 +38,28 @@ public class Sql2oMemberDaoTest {
         assertNotEquals(originalMemberId, member.getId()); //how does this work?
     }
 
-    public Member setupNewMember(){
-        return new Member("bill");
+    @Test
+    public void existingMembersCanBeFoundById() throws Exception {
+        Member member = setupNewMember();
+        memberDao.add(member);
+        Member foundMember = memberDao.findById(member.getId());
+        assertEquals(member, foundMember);
     }
+
+    @Test
+    public void addedMembersAreReturnedFromGetAll() throws Exception {
+        Member member = setupNewMember();
+        memberDao.add(member);
+        assertEquals(1, memberDao.getAll().size());
+    }
+
+    @Test
+    public void noMembersReturnsEmptyList() throws Exception {
+        assertEquals(0, memberDao.getAll().size());
+    }
+
+    public Member setupNewMember(){
+        return new Member("bill", "bill@yahoo.com");
+    }
+
 }

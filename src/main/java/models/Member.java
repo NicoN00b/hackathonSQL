@@ -10,7 +10,7 @@ public class Member {
     private int id;
     private int teamId;
 
-    public Member (String name) {
+    public Member (String name, String contact) {
         this.name  = name;
         this.contact = contact;
         this.completed = false;
@@ -30,13 +30,21 @@ public class Member {
         return contact;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
+//    public void setContact(String contact) {
+//        this.contact = contact;
+//    }
 
    public void update(String name) {
 
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getTeamId() {

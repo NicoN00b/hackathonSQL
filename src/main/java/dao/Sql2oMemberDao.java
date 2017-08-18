@@ -17,7 +17,7 @@ public class Sql2oMemberDao implements MemberDao {
 
     public void add(Member member) {
 
-        String sql = "INSERT INTO members (name, contact, teamId) VALUES (:title, :contact, :teamId)"; //raw sql
+        String sql = "INSERT INTO members (name, contact, teamId) VALUES (:name, :contact, :teamId)"; //raw sql
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql)
                     .addParameter("name", member.getName())
@@ -50,10 +50,11 @@ public class Sql2oMemberDao implements MemberDao {
         }
     }
 
-    public void update(int id, String newContact, int newTeamId){
-        String sql = "UPDATE members SET (contact, teamId) = (:contact, :teamId) WHERE id=:id"; //raw sql
+    public void update(int id, String newName, String newContact, int newTeamId){
+        String sql = "UPDATE members SET (name, contact, teamId) = (:name, :contact, :teamId) WHERE id=:id"; //raw sql
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
+                    .addParameter("name", newName)
                     .addParameter("contact", newContact)
                     .addParameter("teamId", newTeamId)
                     .addParameter("id", id)

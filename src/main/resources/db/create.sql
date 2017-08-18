@@ -3,7 +3,7 @@ SET MODE PostgreSQL;
 CREATE TABLE IF NOT EXISTS members (
     id int PRIMARY KEY auto_increment,
     name VARCHAR,
-    contant VARCHAR,
+    contact VARCHAR,
     completed BOOLEAN,
     teamid INTEGER
 );
