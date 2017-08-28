@@ -10,7 +10,7 @@ public class Member {
     private int id;
     private int teamId;
 
-    public Member (String name, String contact, int teamIdname) {
+    public Member (String name, String contact, int teamId) {
         this.name  = name;
         this.contact = contact;
         this.completed = false;

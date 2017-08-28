@@ -1,0 +1,59 @@
+.jumbotron {
+    background-image: url("/images/markus-spiske-detail.jpg");
+    color: #8B008B;
+    text-align: center;
+    width: 100%;
+    float: left;
+    font: monospace 821;
+}
+container {
+    width: 100%;
+    float: left;
+
+
+}
+body {
+    background-color: black;
+    color: #32CD32;
+    font-family: monospace;
+    font: bold;
+    padding: 0;
+    margin: 0;
+
+}
+.nav nav-tabs {
+    background-color: black;
+    color: purple;
+}
+.well {
+    font-size: 20px;
+    background-color: gray;
+    font: bold;
+}
+input {
+    background-color: black;
+}
+h1 {
+    font: monospace;
+}
+
+a {
+    color: #8B008B;
+}
+.active {
+    background-color: black;
+}
+#team {
+    background-color: black;
+}
+.btn {
+    background-color: black;
+    color: #8B008B;
+}
+.footer {
+    text-align: right;
+}
+#description {
+    height: 30px;
+    width: 70%;
+}

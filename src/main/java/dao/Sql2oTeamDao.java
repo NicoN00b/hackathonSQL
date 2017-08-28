@@ -8,6 +8,9 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
+import static com.sun.tools.doclets.formats.html.markup.HtmlStyle.description;
+import static com.sun.tools.doclets.formats.html.markup.HtmlStyle.title;
+
 public class Sql2oTeamDao implements TeamDao {
 
     private final Sql2o sql2o;

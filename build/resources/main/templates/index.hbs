@@ -1,0 +1,16 @@
+{{#partial "content"}}
+
+    <h1>Hack Teams</h1>
+    <br>
+    {{#if teams}}
+        {{#each teams }}
+            <div class="well">
+                <p>{{ title }}</p> <p><a href="/teams/{{id}}">read more...</a></p>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No Teams Added!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
