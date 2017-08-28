@@ -51,10 +51,10 @@ public class App {
 
         get("/teams/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Team> teamList = teamDao.getAll();
-            model.put("teams", teamList);
             teamDao.clearAllTeams();
             memberDao.clearAllMembers();
+            List<Team> teamList = teamDao.getAll();
+            model.put("teams", teamList);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
